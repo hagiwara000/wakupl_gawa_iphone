@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self loadAddressUrl];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,4 +25,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadAddressUrl {
+    
+    NSURL *url = [NSURL URLWithString:@"http://wakupl.com"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    [self.wv loadRequest:request];
+    self.wv.scalesPageToFit = YES;
+}
 @end
